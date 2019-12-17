@@ -1,5 +1,3 @@
-const path = require('path');
-
-module.exports = env => {
-  env.production ? require('./config/webpack.prod') : require('./config/webpack.dev')
+module.exports = (env, args) => {
+  return args.mode === 'production' ? require('./config/webpack.prod') : require('./config/webpack.dev')
 };
