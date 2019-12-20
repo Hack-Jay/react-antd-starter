@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import App from './App'
+import { createApp, createAppStore } from './app/index'
 
-ReactDom.render(<App />, document.getElementById('root'))
+const { store } = createAppStore()
+ReactDom.render(createApp(store), document.getElementById('root'))

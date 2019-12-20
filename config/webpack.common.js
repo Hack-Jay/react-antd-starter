@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {
 	CleanWebpackPlugin
 } = require('clean-webpack-plugin');
+const HappyPack = require('happypack');
 
 module.exports = {
 	entry: path.join(__dirname, '../src/index.js'),
@@ -20,16 +21,9 @@ module.exports = {
 				exclude: [
 					path.resolve(__dirname, '../node_modules')
 				],
-				loader: 'babel-loader',
-				query: {
-					presets: [
-						["@babel/env", {
-							"targets": {
-								"browsers": "last 2 chrome versions"
-							}
-						}]
-					]
-				}
+				// loader: 'babel-loader',
+				use: ['happypack/loader?id=jsx']
+				
 			},
 			{
 				test: /\.(png|jpg|gif)$/i,
@@ -44,6 +38,10 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new HappyPack({
+			id: 'jsx',
+			loaders: ['babel-loader?cacheDirectory']
+		  }),
 		new HtmlWebpackPlugin({
 			title: 'yc admin',
 			template: "src/index.ejs",

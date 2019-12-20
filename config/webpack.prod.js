@@ -48,12 +48,15 @@ module.exports = webpackMerge(basicConfig, {
             filename: 'css/[name]_[contenthash:8].css',
             chunkFilename: 'css/[id].[contenthash:8].css'
         }),
-
         new FriendlyErrorsWebpackPlugin()
     ],
     optimization: {
         minimizer: [
-            new OptimizeCSSAssetsPlugin({})
+            new OptimizeCSSAssetsPlugin({
+                cssProcessorOptions: {
+                    safe: true,
+                }
+            }),
         ],
         splitChunks: {
             cacheGroups: {

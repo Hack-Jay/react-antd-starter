@@ -11,7 +11,7 @@ module.exports = webpackMerge(basicConfig, {
         hot: true,
         inline: true,
         host: 'localhost',
-        port: 3000,
+        port: 3003,
     },
     module: {
         rules: [

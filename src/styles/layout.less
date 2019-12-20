@@ -1,0 +1,45 @@
+.app {
+    font-size: 1.6rem;
+
+    @media screen and (max-width: 960px) {
+        font-size: 1.4rem;
+    }
+
+    .aside {
+        position: fixed;
+        left: 0;
+        height: 100vh;
+        overflow-y: auto;
+
+        .logo {
+            text-align: center;
+            height: 60px;
+            line-height: 60px;
+            background: rgba(43, 79, 154, 1);
+            width: 100%;
+
+            img {
+                width: 60px;
+                height: 31px;
+            }
+        }
+    }
+
+    .header {
+        height: 60px;
+        background-color: #4C73C6;
+        padding: 0 1.5rem;
+        display: flex;
+        justify-content: space-between;
+
+        .right {
+            display: flex;
+            align-items: center;
+
+            .user-name {
+                margin-left: 13px;
+                color: #ffffff;
+            }
+        }
+    }
+}
